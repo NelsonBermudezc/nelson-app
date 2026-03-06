@@ -36,6 +36,7 @@ export async function createUserAction(formData: FormData) {
   const values = readUserFormValues(formData, DEFAULT_CREATE_USER_FORM_VALUES);
   const parsed = createUserInputSchema.safeParse({
     ...values,
+    whatsapp_country: formData.get("whatsapp_country") ?? values.whatsapp_country,
     next_billing_date: asNullableDate(formData.get("next_billing_date")),
   });
 
@@ -74,6 +75,7 @@ export async function updateUserAction(formData: FormData) {
 
   const parsed = updateUserInputSchema.safeParse({
     ...values,
+    whatsapp_country: formData.get("whatsapp_country") ?? values.whatsapp_country,
     next_billing_date: asNullableDate(formData.get("next_billing_date")),
   });
 

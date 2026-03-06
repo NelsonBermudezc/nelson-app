@@ -3,6 +3,7 @@ import type { ZodError } from "zod";
 export const USER_FORM_FIELDS = [
   "full_name",
   "whatsapp",
+  "whatsapp_country",
   "plan",
   "amount_cents",
   "status",
@@ -21,6 +22,7 @@ type UserFormSource =
 export const DEFAULT_CREATE_USER_FORM_VALUES: UserFormValues = {
   full_name: "",
   whatsapp: "",
+  whatsapp_country: "AR",
   plan: "manual",
   amount_cents: "19800",
   status: "activa",

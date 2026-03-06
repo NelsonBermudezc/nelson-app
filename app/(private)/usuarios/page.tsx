@@ -54,6 +54,7 @@ export default async function UsersPage({ searchParams }: UsersPageProps) {
     ? readUserFormValues(params, {
         full_name: selected.user.full_name,
         whatsapp: selected.user.whatsapp,
+        whatsapp_country: "AR",
         plan: selected.subscription?.plan ?? "manual",
         amount_cents: String(selected.subscription?.amount_cents ?? 19800),
         status: selected.subscription?.status ?? "activa",
@@ -161,6 +162,9 @@ export default async function UsersPage({ searchParams }: UsersPageProps) {
               <PhoneInput
                 name="whatsapp"
                 defaultValue={createFormValues.whatsapp}
+                defaultCountry={
+                  createFormValues.whatsapp_country as import("libphonenumber-js").CountryCode
+                }
                 required
               />
             </div>
@@ -245,6 +249,10 @@ export default async function UsersPage({ searchParams }: UsersPageProps) {
               <PhoneInput
                 name="whatsapp"
                 defaultValue={editFormValues?.whatsapp ?? selected.user.whatsapp}
+                defaultCountry={
+                  (editFormValues?.whatsapp_country ??
+                    "AR") as import("libphonenumber-js").CountryCode
+                }
                 required
               />
             </div>
