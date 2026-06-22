@@ -14,6 +14,10 @@ test("formatAuditActor falls back to Sistema when there is no readable person", 
   assert.equal(formatAuditActor({ actor_auth_id: "secret-auth-id" }), "Sistema");
 });
 
+test("formatAuditActor uses the WhatsApp phone for regular user actions", () => {
+  assert.equal(formatAuditActor({ phone: "+50688888888" }), "+50688888888");
+});
+
 test("formatAuditActionSummary returns a short Spanish sentence without sensitive detail", () => {
   assert.equal(
     formatAuditActionSummary({

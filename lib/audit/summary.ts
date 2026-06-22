@@ -63,6 +63,7 @@ export function formatAuditActor(detail?: AuditActorDetail | null) {
     readableString(safeDetail.actor_name) ??
     readableString(safeDetail.actor_full_name) ??
     readableString(safeDetail.actor_email) ??
+    readableString(safeDetail.phone) ??
     "Sistema"
   );
 }

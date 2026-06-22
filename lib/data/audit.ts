@@ -1,3 +1,4 @@
+import { buildAuditActorOrFilter, sanitizeAuditSearch } from "@/lib/audit/filter";
 import { AppError } from "@/lib/errors/app-error";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import type { AuditLogRecord } from "@/lib/types/domain";
@@ -7,14 +8,11 @@ export async function listAuditLogs(input: AuditFilterInput) {
   const client = createSupabaseAdminClient();
   const fromIndex = (input.page - 1) * input.pageSize;
   const toIndex = fromIndex + input.pageSize - 1;
-  const actorJoin = input.actor
-    ? "actor_profile:admin_profiles!inner(full_name,email)"
-    : "actor_profile:admin_profiles(full_name,email)";
 
   let query = client
     .from("audit_logs")
     .select(
-      `id,occurred_at,actor_admin_id,entity_type,entity_id,action,detail,result,${actorJoin}`,
+      "id,occurred_at,actor_admin_id,entity_type,entity_id,action,detail,result,actor_profile:admin_profiles(full_name,email)",
       { count: "exact" },
     )
     .order("occurred_at", { ascending: false })
@@ -33,10 +31,24 @@ export async function listAuditLogs(input: AuditFilterInput) {
   }
 
   if (input.actor) {
-    const escaped = input.actor.replace(/[%_]/g, "");
-    query = query.or(`full_name.ilike.%${escaped}%,email.ilike.%${escaped}%`, {
-      foreignTable: "admin_profiles",
-    });
+    const escaped = sanitizeAuditSearch(input.actor);
+
+    if (escaped.length > 0) {
+      const { data: adminMatches, error: adminError } = await client
+        .from("admin_profiles")
+        .select("id")
+        .or(`full_name.ilike.%${escaped}%,email.ilike.%${escaped}%`);
+
+      if (adminError) {
+        throw new AppError(adminError.message, 500, "audit_actor_filter_failed");
+      }
+
+      const adminIds = (adminMatches ?? [])
+        .map((row) => (typeof row.id === "string" ? row.id : null))
+        .filter((id): id is string => id !== null);
+
+      query = query.or(buildAuditActorOrFilter(escaped, adminIds));
+    }
   }
 
   if (input.result) {
