@@ -29,7 +29,7 @@ export async function PATCH(request: NextRequest) {
   const payload = await request.json().catch(() => null);
   const parsed = updateSettingsInputSchema.safeParse(payload);
   if (!parsed.success) {
-    return fail(new AppError("Payload invalido", 400, "invalid_payload"));
+    return fail(new AppError("Payload inválido", 400, "invalid_payload"));
   }
 
   try {

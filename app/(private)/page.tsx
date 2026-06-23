@@ -54,11 +54,11 @@ export default async function DashboardPage() {
         <div className="row-between">
           <h2>Actividad reciente</h2>
           <a href="/auditoria" className="button button-ghost">
-            Ver auditoria completa
+            Ver auditoría completa
           </a>
         </div>
         {recentActivity.length === 0 ? (
-          <p className="muted">Todavia no hay actividad registrada.</p>
+          <p className="muted">Todavía no hay actividad registrada.</p>
         ) : (
           <ul className="stack-list">
             {recentActivity.map((item) => (

@@ -94,7 +94,7 @@ test("updateSettingsInputSchema enforces grace constraints", () => {
   const parsed = updateSettingsInputSchema.safeParse({
     grace_days: 3,
     payment_reminder_template: "Hola {{name}}, recuerda pagar hoy.",
-    suspension_notice_template: "Hola {{name}}, tu cuenta esta suspendida.",
+    suspension_notice_template: "Hola {{name}}, tu cuenta está suspendida.",
     timezone: "America/Argentina/Buenos_Aires",
     date_format: "DD/MM/YYYY",
   });

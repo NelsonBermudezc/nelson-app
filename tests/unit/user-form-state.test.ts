@@ -12,7 +12,7 @@ import {
 test("buildUserFormErrorRedirect preserves entered values for create modal", () => {
   const location = buildUserFormErrorRedirect({
     mode: "create",
-    error: "Monto invalido.",
+    error: "Monto inválido.",
     values: {
       ...DEFAULT_CREATE_USER_FORM_VALUES,
       full_name: "Maria Lopez",
@@ -27,7 +27,7 @@ test("buildUserFormErrorRedirect preserves entered values for create modal", () 
 
   assert.equal(url.pathname, "/usuarios");
   assert.equal(url.searchParams.get("modal"), "create");
-  assert.equal(url.searchParams.get("error"), "Monto invalido.");
+  assert.equal(url.searchParams.get("error"), "Monto inválido.");
   assert.equal(url.searchParams.get("full_name"), "Maria Lopez");
   assert.equal(url.searchParams.get("whatsapp"), "+5493514558821");
   assert.equal(url.searchParams.get("amount_cents"), "");
@@ -58,12 +58,12 @@ test("readUserFormValues preserves blank query values instead of resetting defau
 
 test("getFirstZodIssueMessage exposes the first specific validation error", () => {
   const schema = z.object({
-    amount_cents: z.number().positive("Monto invalido."),
+    amount_cents: z.number().positive("Monto inválido."),
   });
   const parsed = schema.safeParse({
     amount_cents: 0,
   });
 
   assert.equal(parsed.success, false);
-  assert.equal(getFirstZodIssueMessage(parsed.error), "Monto invalido.");
+  assert.equal(getFirstZodIssueMessage(parsed.error), "Monto inválido.");
 });

@@ -23,7 +23,7 @@ export function assertValidStatusTransition(
   target: SubscriptionStatus,
 ) {
   if (!isValidStatusTransition(current, target)) {
-    throw new Error(`Transicion invalida: ${current} -> ${target}`);
+    throw new Error(`Transición inválida: ${current} -> ${target}`);
   }
 }
 

@@ -93,7 +93,7 @@ export async function updateUserAction(formData: FormData) {
     redirect(
       buildUserFormErrorRedirect({
         mode: "edit",
-        error: parsed.success ? "Usuario invalido." : getFirstZodIssueMessage(parsed.error),
+        error: parsed.success ? "Usuario inválido." : getFirstZodIssueMessage(parsed.error),
         values,
         userId,
       }),
@@ -128,7 +128,7 @@ export async function changeSubscriptionStatusAction(formData: FormData) {
   });
 
   if (!subscriptionId || !parsed.success) {
-    redirect("/suscripciones?error=Datos invalidos.");
+    redirect("/suscripciones?error=Datos inválidos.");
   }
 
   try {
@@ -153,7 +153,7 @@ export async function terminateSubscriptionAction(formData: FormData) {
   const subscriptionId = String(formData.get("subscription_id") ?? "").trim();
 
   if (!subscriptionId) {
-    redirect("/suscripciones?error=Suscripcion invalida.");
+    redirect("/suscripciones?error=Suscripción inválida.");
   }
 
   try {
@@ -166,7 +166,7 @@ export async function terminateSubscriptionAction(formData: FormData) {
     redirect(`/suscripciones?error=${encodeURIComponent(message)}`);
   }
 
-  redirect("/suscripciones?success=Suscripcion terminada.");
+  redirect("/suscripciones?success=Suscripción terminada.");
 }
 
 export async function updateSettingsAction(formData: FormData) {
@@ -178,7 +178,7 @@ export async function updateSettingsAction(formData: FormData) {
   });
 
   if (!parsed.success) {
-    redirect("/configuracion?error=Datos invalidos.");
+    redirect("/configuracion?error=Datos inválidos.");
   }
 
   try {
@@ -190,7 +190,7 @@ export async function updateSettingsAction(formData: FormData) {
     redirect(`/configuracion?error=${encodeURIComponent(message)}`);
   }
 
-  redirect("/configuracion?success=Configuracion actualizada.");
+  redirect("/configuracion?success=Configuración actualizada.");
 }
 
 export async function updatePasswordAction(formData: FormData) {

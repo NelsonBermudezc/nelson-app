@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
   });
 
   if (!parsed.success) {
-    return buildLoginRedirect(request, "Credenciales invalidas.");
+    return buildLoginRedirect(request, "Credenciales inválidas.");
   }
 
   const redirectTo = new URL(parsed.data.next || "/", request.url);

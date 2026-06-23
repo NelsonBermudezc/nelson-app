@@ -25,7 +25,7 @@ export async function GET(request: NextRequest) {
   });
 
   if (!parsed.success) {
-    return fail(new AppError("Parametros invalidos", 400, "invalid_query"));
+    return fail(new AppError("Parámetros inválidos", 400, "invalid_query"));
   }
 
   try {

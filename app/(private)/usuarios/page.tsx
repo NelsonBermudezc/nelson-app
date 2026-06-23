@@ -75,7 +75,7 @@ export default async function UsersPage({ searchParams }: UsersPageProps) {
   return (
     <PrivateShell
       title="Usuarios"
-      subtitle="Gestion de usuarios con suscripcion inicial y edicion"
+      subtitle="Gestión de usuarios con suscripción inicial y edición"
       actions={
         <a href="/usuarios?modal=create" className="button button-primary">
           Crear usuario
@@ -114,7 +114,7 @@ export default async function UsersPage({ searchParams }: UsersPageProps) {
                 <th>WhatsApp</th>
                 <th>Estado</th>
                 <th>Monto</th>
-                <th>Proximo cobro</th>
+                <th>Próximo cobro</th>
                 <th>Acciones</th>
               </tr>
             </thead>
@@ -127,7 +127,7 @@ export default async function UsersPage({ searchParams }: UsersPageProps) {
                     {entry.subscription ? (
                       <StatusBadge status={entry.subscription.status} />
                     ) : (
-                      <span className="badge badge-muted">sin suscripcion</span>
+                      <span className="badge badge-muted">sin suscripción</span>
                     )}
                   </td>
                   <td data-label="Monto">
@@ -135,7 +135,7 @@ export default async function UsersPage({ searchParams }: UsersPageProps) {
                       ? formatCurrencyCents(entry.subscription.amount_cents)
                       : "-"}
                   </td>
-                  <td data-label="Proximo cobro">{formatDate(entry.subscription?.next_billing_date)}</td>
+                  <td data-label="Próximo cobro">{formatDate(entry.subscription?.next_billing_date)}</td>
                   <td>
                     <div className="row-actions">
                       <a href={`/usuarios?modal=view&id=${entry.user.id}`}>Ver</a>
@@ -196,7 +196,7 @@ export default async function UsersPage({ searchParams }: UsersPageProps) {
               />
             </label>
             <label className="field">
-              <span>Proximo cobro</span>
+              <span>Próximo cobro</span>
               <input
                 name="next_billing_date"
                 type="date"
@@ -229,7 +229,7 @@ export default async function UsersPage({ searchParams }: UsersPageProps) {
             <dd>{selected.subscription?.status ?? "-"}</dd>
             <dt>Inicio</dt>
             <dd>{formatDate(selected.subscription?.start_date ?? null)}</dd>
-            <dt>Proximo cobro</dt>
+            <dt>Próximo cobro</dt>
             <dd>{formatDate(selected.subscription?.next_billing_date ?? null)}</dd>
           </dl>
         </Modal>
@@ -307,7 +307,7 @@ export default async function UsersPage({ searchParams }: UsersPageProps) {
               />
             </label>
             <label className="field">
-              <span>Proximo cobro</span>
+              <span>Próximo cobro</span>
               <input
                 name="next_billing_date"
                 type="date"

@@ -21,7 +21,7 @@ export default async function SettingsPage({ searchParams }: SettingsPageProps) 
 
   return (
     <PrivateShell
-      title="Configuracion"
+      title="Configuración"
       subtitle="Seguridad de la cuenta"
     >
       {success ? <FlashMessage kind="success" message={success} /> : null}

@@ -302,7 +302,7 @@ export function PhoneInput({
             className="phone-country-button"
             onClick={() => setIsOpen((open) => !open)}
             onKeyDown={handleKeyDown}
-            aria-label="Seleccionar pais"
+            aria-label="Seleccionar país"
             aria-expanded={isOpen}
           >
             <span className="phone-flag">{getFlagEmoji(selectedCountry)}</span>
@@ -329,7 +329,7 @@ export function PhoneInput({
                 <input
                   ref={searchInputRef}
                   type="text"
-                  placeholder="Buscar pais..."
+                  placeholder="Buscar país..."
                   value={searchTerm}
                   onChange={(event) => {
                     setSearchTerm(event.target.value);
@@ -361,7 +361,7 @@ export function PhoneInput({
                 ))}
                 {sortedCountries.length === 0 ? (
                   <div className="phone-dropdown-empty">
-                    No se encontraron paises
+                    No se encontraron países
                   </div>
                 ) : null}
               </div>
@@ -374,15 +374,15 @@ export function PhoneInput({
           className="phone-number-input"
           value={phoneNumber}
           onChange={(event) => handlePhoneChange(event.target.value)}
-          placeholder={placeholder || "Numero de telefono"}
-          aria-label="Numero de telefono"
+          placeholder={placeholder || "Número de teléfono"}
+          aria-label="Número de teléfono"
         />
       </div>
 
       <small className="field-hint">
         {phoneNumber
           ? `Formato: +${callingCode} ${phoneNumber.replace(/\D/g, "").substring(0, 3)} ${phoneNumber.replace(/\D/g, "").substring(3)}`
-          : `Escribe tu numero sin el codigo de pais (+${callingCode})`}
+          : `Escribe tu número sin el código de país (+${callingCode})`}
       </small>
     </div>
   );

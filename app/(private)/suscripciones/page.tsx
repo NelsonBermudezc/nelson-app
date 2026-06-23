@@ -42,7 +42,7 @@ export default async function SubscriptionsPage({
   return (
     <PrivateShell
       title="Suscripciones"
-      subtitle="Cambio manual de estado y terminacion confirmada"
+      subtitle="Cambio manual de estado y terminación confirmada"
     >
       {success ? <FlashMessage kind="success" message={success} /> : null}
       {error ? <FlashMessage kind="error" message={error} /> : null}
@@ -76,7 +76,7 @@ export default async function SubscriptionsPage({
                 <th>Plan</th>
                 <th>Monto</th>
                 <th>Estado actual</th>
-                <th>Proximo cobro</th>
+                <th>Próximo cobro</th>
                 <th>Cambiar estado</th>
                 <th>Terminar</th>
               </tr>
@@ -96,7 +96,7 @@ export default async function SubscriptionsPage({
                     <td data-label="Estado actual">
                       <StatusBadge status={row.status} />
                     </td>
-                    <td data-label="Proximo cobro">{formatDate(row.next_billing_date)}</td>
+                    <td data-label="Próximo cobro">{formatDate(row.next_billing_date)}</td>
                     <td data-label="Cambiar estado">
                       <SubscriptionStatusChanger
                         subscriptionId={row.id}
@@ -122,9 +122,9 @@ export default async function SubscriptionsPage({
       </section>
 
       {terminateTarget ? (
-        <Modal title="Confirmar terminacion" closeHref="/suscripciones">
+        <Modal title="Confirmar terminación" closeHref="/suscripciones">
           <p>
-            Vas a terminar la suscripcion de{" "}
+            Vas a terminar la suscripción de{" "}
             <strong>
               {Array.isArray(terminateTarget.users)
                 ? terminateTarget.users[0]?.full_name

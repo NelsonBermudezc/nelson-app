@@ -215,7 +215,7 @@ export async function updateUserAndSubscription(
   }
 
   if (!subscription) {
-    throw new AppError("Suscripcion no encontrada", 404, "subscription_not_found");
+    throw new AppError("Suscripción no encontrada", 404, "subscription_not_found");
   }
 
   const { error: subscriptionUpdateError } = await client

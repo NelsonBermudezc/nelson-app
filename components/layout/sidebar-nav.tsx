@@ -8,8 +8,8 @@ const navItems = [
   { href: "/", label: "Inicio" },
   { href: "/usuarios", label: "Usuarios" },
   { href: "/suscripciones", label: "Suscripciones" },
-  { href: "/auditoria", label: "Auditoria" },
-  { href: "/configuracion", label: "Configuracion" },
+  { href: "/auditoria", label: "Auditoría" },
+  { href: "/configuracion", label: "Configuración" },
 ];
 
 export function SidebarNav() {
@@ -72,7 +72,7 @@ export function SidebarNav() {
 
         <form action="/auth/logout" method="post" className="panel-logout-form">
           <button type="submit" className="button button-ghost">
-            Cerrar sesion
+            Cerrar sesión
           </button>
         </form>
       </div>

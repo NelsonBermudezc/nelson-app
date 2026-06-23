@@ -50,7 +50,7 @@ export default async function AuditPage({ searchParams }: AuditPageProps) {
 
   return (
     <PrivateShell
-      title="Auditoria"
+      title="Auditoría"
       subtitle="Historial simple de quién hizo qué, sin detalles sensibles"
     >
       <section className="panel-block">
@@ -113,7 +113,7 @@ export default async function AuditPage({ searchParams }: AuditPageProps) {
 
         <div className="row-between">
           <p className="muted">
-            Pagina {result.page} de {totalPages} - {result.total} eventos
+            Página {result.page} de {totalPages} - {result.total} eventos
           </p>
           <div className="row-inline">
             <a

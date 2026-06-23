@@ -25,7 +25,7 @@ export async function PATCH(request: NextRequest, { params }: RouteParams) {
   const parsed = patchSubscriptionStatusInputSchema.safeParse(payload);
 
   if (!parsed.success) {
-    return fail(new AppError("Payload invalido", 400, "invalid_payload"));
+    return fail(new AppError("Payload inválido", 400, "invalid_payload"));
   }
 
   try {

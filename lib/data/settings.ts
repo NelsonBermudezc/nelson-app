@@ -11,7 +11,7 @@ const defaultSettings = {
   payment_reminder_template:
     "Hola {{name}}, tu pago vence el {{next_billing_date}}. Evita suspension renovando hoy.",
   suspension_notice_template:
-    "Hola {{name}}, tu suscripcion fue suspendida. Escribenos para reactivarla.",
+    "Hola {{name}}, tu suscripción fue suspendida. Escríbenos para reactivarla.",
 };
 
 export async function getSettings() {

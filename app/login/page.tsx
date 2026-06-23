@@ -48,7 +48,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
           </div>
         </div>
 
-        <h2>Inicia sesion</h2>
+        <h2>Inicia sesión</h2>
         <p className="muted">
           Usa tu cuenta de administrador para entrar al panel.
         </p>

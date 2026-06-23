@@ -46,7 +46,7 @@ export async function PATCH(request: NextRequest, { params }: RouteParams) {
   if (!parsed.success) {
     return fail(
       new AppError(
-        getFirstZodIssueMessage(parsed.error, "Payload invalido"),
+        getFirstZodIssueMessage(parsed.error, "Payload inválido"),
         400,
         "invalid_payload",
       ),

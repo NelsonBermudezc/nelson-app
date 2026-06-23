@@ -78,7 +78,7 @@ export async function patchSubscriptionStatus(
   }
 
   if (!subscription) {
-    throw new AppError("Suscripcion no encontrada", 404, "subscription_not_found");
+    throw new AppError("Suscripción no encontrada", 404, "subscription_not_found");
   }
 
   if (!isValidStatusTransition(subscription.status, input.status)) {
@@ -96,7 +96,7 @@ export async function patchSubscriptionStatus(
       result: "error",
     });
 
-    throw new AppError("Transicion de estado invalida", 409, "invalid_transition");
+    throw new AppError("Transición de estado inválida", 409, "invalid_transition");
   }
 
   const updatePayload: Record<string, unknown> = { status: input.status };

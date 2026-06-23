@@ -24,7 +24,7 @@ export async function GET(request: NextRequest) {
   });
 
   if (!parsed.success) {
-    return fail(new AppError("Parametros invalidos", 400, "invalid_query"));
+    return fail(new AppError("Parámetros inválidos", 400, "invalid_query"));
   }
 
   try {
@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
   if (!parsed.success) {
     return fail(
       new AppError(
-        getFirstZodIssueMessage(parsed.error, "Payload invalido"),
+        getFirstZodIssueMessage(parsed.error, "Payload inválido"),
         400,
         "invalid_payload",
       ),

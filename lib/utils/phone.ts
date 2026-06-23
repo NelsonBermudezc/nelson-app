@@ -20,7 +20,7 @@ export function normalizePhoneNumber(value: unknown, defaultCountry?: unknown) {
   if (!trimmed) {
     return {
       success: false,
-      message: "Numero de telefono requerido.",
+      message: "Número de teléfono requerido.",
     };
   }
 
@@ -36,7 +36,7 @@ export function normalizePhoneNumber(value: unknown, defaultCountry?: unknown) {
     if (!parsed || !parsed.isValid()) {
       return {
         success: false,
-        message: "Numero de telefono invalido.",
+        message: "Número de teléfono inválido.",
       };
     }
 
@@ -47,7 +47,7 @@ export function normalizePhoneNumber(value: unknown, defaultCountry?: unknown) {
   } catch {
     return {
       success: false,
-      message: "Numero de telefono invalido.",
+      message: "Número de teléfono inválido.",
     };
   }
 }

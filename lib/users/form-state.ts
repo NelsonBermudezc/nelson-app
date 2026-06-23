@@ -72,7 +72,7 @@ export function readUserFormValues(
 
 export function getFirstZodIssueMessage(
   error: ZodError,
-  fallback = "Datos invalidos.",
+  fallback = "Datos inválidos.",
 ) {
   return error.issues[0]?.message ?? fallback;
 }

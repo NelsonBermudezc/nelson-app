@@ -71,21 +71,21 @@ export function buildDashboardAlerts(kpis: DashboardKpis): DashboardAlert[] {
   if (kpis.graceCount > 0) {
     alerts.push({
       level: "warning",
-      message: `${kpis.graceCount} suscripciones estan en periodo de gracia.`,
+      message: `${kpis.graceCount} suscripciones están en período de gracia.`,
     });
   }
 
   if (kpis.suspendedCount > 0) {
     alerts.push({
       level: "critical",
-      message: `${kpis.suspendedCount} suscripciones estan suspendidas.`,
+      message: `${kpis.suspendedCount} suscripciones están suspendidas.`,
     });
   }
 
   if (kpis.dueSoonCount > 0) {
     alerts.push({
       level: "info",
-      message: `${kpis.dueSoonCount} suscripciones vencen en los proximos 7 dias.`,
+      message: `${kpis.dueSoonCount} suscripciones vencen en los próximos 7 días.`,
     });
   }
 

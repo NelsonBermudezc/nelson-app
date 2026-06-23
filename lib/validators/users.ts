@@ -7,7 +7,7 @@ const isoDateSchema = z
   .string()
   .regex(/^\d{4}-\d{2}-\d{2}$/, "Usa formato YYYY-MM-DD.");
 
-const amountCentsSchema = z.coerce.number().int().positive("Monto invalido.");
+const amountCentsSchema = z.coerce.number().int().positive("Monto inválido.");
 const dollarAmountPattern = /^\d+(?:[.,]\d{1,2})?$/;
 
 export type DollarAmountToCentsResult =
@@ -34,7 +34,7 @@ const dollarAmountCentsSchema = z.string().transform((value, ctx) => {
   if (!parsed.ok) {
     ctx.addIssue({
       code: z.ZodIssueCode.custom,
-      message: "Monto invalido.",
+      message: "Monto inválido.",
     });
     return z.NEVER;
   }

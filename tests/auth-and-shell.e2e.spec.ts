@@ -4,7 +4,7 @@ test("login page renders expected fields", async ({ page }) => {
   await page.goto("/login");
 
   await expect(
-    page.getByRole("heading", { name: "Inicia sesion" }),
+    page.getByRole("heading", { name: "Inicia sesión" }),
   ).toBeVisible();
   await expect(page.getByLabel("Email")).toBeVisible();
   await expect(page.getByLabel("Contraseña")).toBeVisible();
