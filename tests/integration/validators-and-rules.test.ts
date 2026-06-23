@@ -5,7 +5,10 @@ import {
   createUserFormInputSchema,
   createUserInputSchema,
 } from "@/lib/validators/users";
-import { updateSettingsInputSchema } from "@/lib/validators/settings";
+import {
+  updatePasswordInputSchema,
+  updateSettingsInputSchema,
+} from "@/lib/validators/settings";
 import { patchSubscriptionStatusInputSchema } from "@/lib/validators/subscriptions";
 import { auditFilterInputSchema } from "@/lib/validators/audit";
 
@@ -106,6 +109,32 @@ test("updateSettingsInputSchema enforces grace constraints", () => {
 
   assert.equal(parsed.success, true);
   assert.equal(invalid.success, false);
+});
+
+test("updatePasswordInputSchema accepts a valid password change", () => {
+  const parsed = updatePasswordInputSchema.safeParse({
+    oldPassword: "previous-password",
+    password: "Nueva123!",
+    confirmPassword: "Nueva123!",
+  });
+
+  assert.equal(parsed.success, true);
+});
+
+test("updatePasswordInputSchema rejects weak or mismatched passwords", () => {
+  const weak = updatePasswordInputSchema.safeParse({
+    oldPassword: "previous-password",
+    password: "nueva123",
+    confirmPassword: "nueva123",
+  });
+  const mismatched = updatePasswordInputSchema.safeParse({
+    oldPassword: "previous-password",
+    password: "Nueva123!",
+    confirmPassword: "Nueva123?",
+  });
+
+  assert.equal(weak.success, false);
+  assert.equal(mismatched.success, false);
 });
 
 test("auditFilterInputSchema defaults pagination", () => {
